@@ -5,7 +5,6 @@
 
 		switch($request_method)
 		{
-			// TODO: GET PUT DELETE and such
 			case 'GET':
 				// Retrieve resource
 				if(!empty($_GET["id"]))
@@ -24,6 +23,10 @@
 				break;
 			case 'DELETE':
 				delete($object, $name);
+				break;
+			case 'OPTIONS':
+				// Post resource
+				set($object, $name);
 				break;
 			default:
 				// Invalid Request Method

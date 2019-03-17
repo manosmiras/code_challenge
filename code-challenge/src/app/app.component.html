@@ -10,8 +10,14 @@
  
     <!-- Show this view if "show_read_policies_html" property of AppComponent is true. -->
     <app-read-policies
-        *ngIf="show_read_policies_html">
+        *ngIf="show_read_policies_html"
+		(show_create_policy_event)="showCreatePolicy($event)">
     </app-read-policies>
+	
+	<app-create-policy
+		*ngIf="show_create_policy_html"
+		(show_read_policies_event)="showReadPolicies($event)">
+	</app-create-policy>
  
 </div>
 <!-- /container -->

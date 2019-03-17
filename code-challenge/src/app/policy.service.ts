@@ -20,5 +20,19 @@ export class PolicyService {
             .get("http://localhost/code_challenge/api/policies.php")
             .pipe(map((res: Response) => res.json()));
     }
- 
+	
+	// Send policy data to remote server to create it.
+	createPolicy(policy): Observable<Policy>{
+		console.log("policy");
+		console.log(policy);
+		let headers = new Headers({ 'Content-Type': 'text/plain'});
+		let options = new RequestOptions({ headers: headers });
+		console.log(options);
+		return this._http.post(
+			"http://localhost/code_challenge/api/policies.php",
+			policy,
+			options
+		).pipe(map((res: Response) => res.json()));
+	}
+	 
 }

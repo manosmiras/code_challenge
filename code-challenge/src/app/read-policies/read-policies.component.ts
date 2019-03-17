@@ -10,15 +10,20 @@ import { Policy } from '../policy';
     providers: [PolicyService]
 })
 export class ReadPoliciesComponent implements OnInit {
-
-  // store list of policies
+	
+	@Output() show_create_policy_event=new EventEmitter();
+	// store list of policies
     policies: Policy[];
  
-    // initialize policyService to retrieve list policies in the ngOnInit()
+    // initialize policyService to retrieve list of policies in the ngOnInit()
     constructor(private policyService: PolicyService){}
  
-    // methods that we will use later
-    createPolicy(){}
+    createPolicy(){
+		// tell the parent component (AppComponent)
+		this.show_create_policy_event.emit({
+			title: "Create Policy"
+		});
+	}
     readOnePolicy(id){}
     updatePolicy(id){}
     deletePolicy(id){}

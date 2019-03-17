@@ -1,0 +1,100 @@
+<div class="row m-b-18px">
+    <div class="col-md-12">
+        <a (click)="readPolicies()" class='btn btn-primary pull-right'>
+            <span class='glyphicon glyphicon-list'></span> View Policies
+        </a>
+    </div>
+</div>
+ 
+<!-- HTML form for creating a policy -->
+<div class="row">
+<div class="col-md-12">
+ 
+<!--
+    1. Bind our HTML form to Angular using [formGroup]
+    2. If form was submitted, call createProduct() method of CreateProductComponent
+-->
+<form [formGroup]="create_policy_form" (ngSubmit)="createPolicy()">
+<table class="table table-hover table-responsive table-bordered"> 
+	
+	<tr>
+		<td>Policy Type</td>
+        <td>
+            <select formControlName="policy_type_id" name="policy_type_id" class="form-control">
+                <option *ngFor="let policy_type of policy_types" value="{{policy_type.id}}">
+                    {{policy_type.name}}
+                </option>
+            </select>
+            <!-- show this error if the field is 'empty' and 'touched' -->
+            <div
+                *ngIf="create_policy_form.get('policy_type_id').touched && create_policy_form.get('policy_type_id').hasError('required')"
+                class="alert alert-danger">
+                Policy Type is required.
+            </div>
+        </td>
+	</tr>
+    <tr>
+        <td>Premium</td>
+        <td>
+            <input
+                formControlName="premium"
+                type="number" name="premium"
+                class="form-control" required />
+ 
+            <!-- show this error if the field is 'empty' and 'touched' -->
+            <div
+                *ngIf="create_policy_form.get('premium').touched && create_policy_form.get('premium').hasError('required')"
+                class="alert alert-danger">
+            Premium is required.
+            </div>
+        </td>
+    </tr>
+ 
+    <tr>
+        <td>Customer</td>
+        <td>
+            <select formControlName="customer_id" name="customer_id" class="form-control">
+                <option *ngFor="let customer of customers" value="{{customer.id}}">
+                    {{customer.name}}
+                </option>
+            </select>
+            <!-- show this error if the field is 'empty' and 'touched' -->
+            <div
+                *ngIf="create_policy_form.get('customer_id').touched && create_policy_form.get('customer_id').hasError('required')"
+                class="alert alert-danger">
+                Customer is required.
+            </div>
+        </td>
+    </tr>
+	
+	<tr>
+		<td>Insurer</td>
+        <td>
+            <select formControlName="insurer_id" name="insurer_id" class="form-control">
+                <option *ngFor="let insurer of insurers" value="{{insurer.id}}">
+                    {{insurer.name}}
+                </option>
+            </select>
+            <!-- show this error if the field is 'empty' and 'touched' -->
+            <div
+                *ngIf="create_policy_form.get('insurer_id').touched && create_policy_form.get('insurer_id').hasError('required')"
+                class="alert alert-danger">
+                Insurer is required.
+            </div>
+        </td>
+	</tr>
+
+    <tr>
+        <td></td>
+        <td>
+            <!-- disable the submit button if the form is 'invalid' -->
+            <button class="btn btn-primary" type="submit" [disabled]="create_policy_form.invalid">
+                <span class="glyphicon glyphicon-plus"></span> Create
+            </button>
+        </td>
+    </tr>
+</table>
+</form>
+ 
+</div>
+</div>
