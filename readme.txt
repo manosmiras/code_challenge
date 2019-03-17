@@ -5,11 +5,14 @@ Steps to run:
 4. Navigate to phpmyadmin (http://localhost/phpmyadmin/index.php)
 5. Import the "brokerinsights.sql", it also contains some data already
 6. Username and password are set as root/root, so you might need to either change the credentials manually or make changes to the file "database.php".
-7. Open a command prompt and navigate to the code-challenge folder inside code_challenge(C:\xampp\htdocs\code_challenge\code-challenge)
-8. Run the "ng serve" command
-9. You should now be able to access the UI through whatever port the angular server is listening on (For me: http://localhost:4200/)
+7. Download and install node.js (https://nodejs.org/en/)
+8. Install npm (npm install npm@latest -g)
+9. Install AngularCLI (npm install -g @angular/cli)
+10. Open a command prompt and navigate to the code-challenge folder inside code_challenge(C:\xampp\htdocs\code_challenge\code-challenge)
+11. Run the "ng serve" command
+12. You should now be able to access the UI through whatever port the angular server is listening on (For me: http://localhost:4200/)
 
-I used Postman to test the rest api (https://www.getpostman.com/downloads/)
+I used Postman to interact with the rest api (https://www.getpostman.com/downloads/)
 
 The rest API can be accessed at http://localhost/code_challenge/api/
 Policies: http://localhost/code_challenge/api/policies.php
