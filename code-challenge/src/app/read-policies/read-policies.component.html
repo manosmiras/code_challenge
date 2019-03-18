@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-12">
  
-        <!-- HTML table for our list of policy records -->
+        <!-- HTML table for the list of policy records -->
         <table class='table table-hover table-responsive table-bordered'>
  
             <tr>
@@ -19,23 +19,15 @@
                 <th>Premium</th>
                 <th>Policy Type</th>
                 <th>Insurer</th>
-				<th>Action</th>
             </tr>
  
-            <!-- Use *ngFor directive to loop throught our list of policies. -->
+            <!-- Loop throught list of policies. -->
             <tr *ngFor="let policy of policies">
                 <td>{{policy.customer_name}}</td>
                 <td>{{policy.customer_address}}</td>
                 <td>{{policy.premium}}</td>
                 <td>{{policy.policy_type}}</td>
 				<td>{{policy.insurer_name}}</td>
-                <td>
- 
-                    <!-- delete policy button -->
-                    <a (click)="deletePolicy(policy.id)" class='btn btn-danger m-r-5px'>
-                        <span class='glyphicon glyphicon-remove'></span> Delete
-                    </a>
-                </td>
             </tr>
         </table>
     </div>

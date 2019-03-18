@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 // Service for policy data.
 export class PolicyService {
  
-    // We need Http to talk to a remote server.
+    // Need Http to talk to a remote server.
     constructor(private _http : Http){ }
  
     // Get list of policies from remote server.

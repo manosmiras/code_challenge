@@ -10,7 +10,7 @@ import { Insurer } from './insurer';
 // Service for insurers data.
 export class InsurerService {
  
-    // We need Http to talk to a remote server.
+    // Need Http to talk to a remote server.
     constructor(private _http: Http) { }
  
     // Get list of insurers from database via api.
